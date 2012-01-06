@@ -1,0 +1,18 @@
+name: Itemizer
+main: me.ellbristow.Itemizer.Itemizer
+version: 1.0
+author: ellbristow
+description: >
+             Get all the details about the item you're holding
+commands:
+  whatis:
+    description: Give details on the held/specified item.
+    permission: Itemizer.whatis
+    usage: "/<command> : Get details of held item."
+permissions:
+  Itemizer.*:
+    description: Access to all Itemizer commands
+    children:
+      Itemizer.whatis: true
+  Itemizer.whatis:
+    description: Access to the /<command> command
