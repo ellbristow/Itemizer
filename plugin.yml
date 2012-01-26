@@ -1,6 +1,6 @@
 name: Itemizer
 main: me.ellbristow.Itemizer.Itemizer
-version: 1.0
+version: 1.0.1
 author: ellbristow
 description: >
              Get all the details about the item you're holding
