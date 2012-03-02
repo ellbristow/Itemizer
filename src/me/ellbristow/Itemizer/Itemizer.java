@@ -1,34 +1,27 @@
 package me.ellbristow.Itemizer;
 
 import java.util.Map;
-import java.util.logging.Logger;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Itemizer extends JavaPlugin {
 	
 	public static Itemizer plugin;
-	public final Logger logger = Logger.getLogger("Minecraft");
 	
 	@Override
 	public void onDisable() {
-		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info("[" + pdfFile.getName() + "] is now disabled.");
 	}
 	
 	@Override
 	public void onEnable() {
-		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info("[" + pdfFile.getName() + "] version " + pdfFile.getVersion() + " is enabled.");
 	}
 	
+        @Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args ) {
 		if (sender instanceof Player) {
 			Boolean comreturn = readCommand((Player) sender, commandLabel, args);
@@ -66,56 +59,68 @@ public class Itemizer extends JavaPlugin {
 	}
 	
 	public String getEnchName(String ench) {
-		if (ench == "DAMAGE_ALL") {
+		if ("DAMAGE_ALL".equals(ench)) {
 			ench = "Sharpness";
 		}
-		else if (ench == "DAMAGE_ARTHROPODS") {
+		else if ("DAMAGE_ARTHROPODS".equals(ench)) {
 			ench = "Bane of Arthropods";
 		}
-		else if (ench == "DAMAGE_UNDEAD") {
+		else if ("DAMAGE_UNDEAD".equals(ench)) {
 			ench = "Smite";
 		}
-		else if (ench == "DIG_SPEED") {
+		else if ("DIG_SPEED".equals(ench)) {
 			ench = "Efficiency";
 		}
-		else if (ench == "DURABILITY") {
+		else if ("DURABILITY".equals(ench)) {
 			ench = "Unbreaking";
 		}
-		else if (ench == "FIRE_ASPECT") {
+		else if ("FIRE_ASPECT".equals(ench)) {
 			ench = "Fire Aspect";
 		}
-		else if (ench == "KNOCKBACK") {
+		else if ("KNOCKBACK".equals(ench)) {
 			ench = "Knockback";
 		}
-		else if (ench == "LOOT_BONUS_BLOCKS") {
+		else if ("LOOT_BONUS_BLOCKS".equals(ench)) {
 			ench = "Fortune";
 		}
-		else if (ench == "LOOT_BONUS_MOBS") {
+		else if ("LOOT_BONUS_MOBS".equals(ench)) {
 			ench = "Looting";
 		}
-		else if (ench == "OXYGEN") {
+		else if ("OXYGEN".equals(ench)) {
 			ench = "Respiration";
 		}
-		else if (ench == "PROTECTION_ENVIRONMENTAL") {
+		else if ("PROTECTION_ENVIRONMENTAL".equals(ench)) {
 			ench = "Protection";
 		}
-		else if (ench == "PROTECTION_EXPLOSIONS") {
+		else if ("PROTECTION_EXPLOSIONS".equals(ench)) {
 			ench = "Blast Protection";
 		}
-		else if (ench == "PROTECTION_FALL") {
+		else if ("PROTECTION_FALL".equals(ench)) {
 			ench = "Feather Falling";
 		}
-		else if (ench == "PROTECTION_FIRE") {
+		else if ("PROTECTION_FIRE".equals(ench)) {
 			ench = "Fire Protection";
 		}
-		else if (ench == "PROTECTION_PROJECTILE") {
+		else if ("PROTECTION_PROJECTILE".equals(ench)) {
 			ench = "Projectile Protection";
 		}
-		else if (ench == "SILK_TOUCH") {
+		else if ("SILK_TOUCH".equals(ench)) {
 			ench = "Silk Touch";
 		}
-		else if (ench == "WATER_WORKS") {
+		else if ("WATER_WORKS".equals(ench)) {
 			ench = "Aqua Affinity";
+		}
+                else if ("ARROW_DAMAGE".equals(ench)) {
+			ench = "Power";
+		}
+                else if ("ARROW_FIRE".equals(ench)) {
+			ench = "Flame";
+		}
+                else if ("ARROW_INFINITE".equals(ench)) {
+			ench = "Infinity";
+		}
+                else if ("ARROW_KNOCKBACK".equals(ench)) {
+			ench = "Punch";
 		}
 		return ench;
 	}
